@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Proyectos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #formularioContainer {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .formulario {
+            background: white;
+            padding: 20px;
+            width: 320px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input,
+        select,
+        button {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        table {
+            margin: 20px auto;
+            width: 90%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #formularioContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Esto centra verticalmente el formulario */
+            width: 100%;
+            /* Asegura que el contenedor ocupe toda la pantalla */
+            position: fixed;
+            /* Fija el formulario en la pantalla */
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.2);
+            /* Fondo semitransparente */
+        }
+
+
+        .formulario {
+            background: white;
+            padding: 20px;
+            width: 500px;
+            /* Más ancho para mejorar la presentación */
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Asegura alineación izquierda */
+            gap: 10px;
+            position: relative;
+            /* Agregado para que la "X" se posicione correctamente */
+
+        }
+
+
+        /* Contenedor de cada input con su label */
+        .form-group {
+            width: 100%;
+            /* Ocupar todo el ancho del formulario */
+            display: flex;
+            flex-direction: column;
+            /* Asegurar que label y input están alineados */
+        }
+
+        /* Estilos para las etiquetas */
+        .formulario label {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        /* Hacer que los inputs y selects ocupen todo el ancho */
+        .formulario input,
+        .formulario select {
+            width: 100%;
+            /* Ocupa todo el ancho disponible */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+
+        /* Espaciado entre el botón y los inputs */
+        #enviar_proyecto {
+            width: 100%;
+            /* Ocupa todo el ancho */
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #enviar_proyecto:hover {
+            background-color: #0056b3;
+        }
+
+        /* Botón de cierre con estilo "X" */
+        .cerrar-formulario {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            /* Movido más a la izquierda */
+            background: none;
+            border: none;
+            font-size: 18px;
+            /* Tamaño más pequeño */
+            color: red;
+            cursor: pointer;
+            font-weight: bold;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Mantener siempre visible la "X", sin hover necesario */
+        .cerrar-formulario:before {
+            /* Ícono de X */
+            display: block;
+        }
+
+        .cerrar-formulario:hover {
+            color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Aplicación para la gestión de proyectos</h1>
+
+    <!-- Contenedor donde se insertará el formulario -->
+    <div id="formularioContainer" style="display: none;"></div>
+    <!-- Botón para generar el formulario -->
+    <button id="boton_proyecto">Añadir Proyecto</button>
+
+    <!-- Tabla para mostrar proyectos -->
+    <h3>Lista de Proyectos</h3>
+    <table id="tablaProyectos">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Responsable</th>
+            <th>Proyecto Principal</th>
+        </tr>
+    </table>
+
+    <!-- Buscador de Empleados -->
+    <h3>Buscar Proyecto</h3>
+    <input type="text" id="buscar_empleado" placeholder="Nombre del proyecto o Nombre del Empleado">
+    <button id="boton_buscar">Buscar</button>
+
+    <h3>Proyectos asignados</h3>
+    <ul id="lista_proyectos"></ul>
+
+    <!-- Botón para restablecer datos -->
+    <button id="boton_restablecer">Restablecer Datos</button>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="proyectos2.js"></script>
+</body>
+
+</html>

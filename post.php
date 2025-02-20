@@ -52,7 +52,7 @@ try {
 
     echo json_encode([
         "success" => true, 
-        "id" => $nuevo_id, 
+        // "id" => $nuevo_id, 
         "message" => "Proyecto añadido correctamente."
     ]);
 
